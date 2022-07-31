@@ -26,21 +26,45 @@ const cx = classNames.bind(styles);
 const CONTENT_DETAILS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
-        content: 'English',
+        title: 'English',
+        children: {
+            title: 'language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: '日本語（日本）',
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-        content: 'Feedback and help',
+        title: 'Feedback and help',
         to: '/feedback',
     },
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
-        content: 'Keybroad shortcuts',
+        title: 'Keybroad shortcuts',
     },
 ];
 
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
+
+    function handleChange(menuItem) {
+        console.log(menuItem);
+    }
 
     return (
         <header className={cx('wrapper')}>
@@ -85,7 +109,7 @@ function Header() {
                     </Button>
                     <Button primary>Log in</Button>
 
-                    <Menu items={CONTENT_DETAILS}>
+                    <Menu items={CONTENT_DETAILS} onChange={handleChange}>
                         <button className={cx('icon-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
