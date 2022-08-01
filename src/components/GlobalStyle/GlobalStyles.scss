@@ -38,3 +38,24 @@ a[href] {
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.tippy-box {
+    background-color: rgb(84 84 84 / 92%);
+}
+
+.tippy-content {
+    padding: 7px 9px;
+    font-size: 1.6rem;
+}
+
+body .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+    color: rgb(84 84 84 / 92%);
+}
+
+.tippy-box[data-placement^='bottom'] > .tippy-arrow {
+    top: -1px;
+}
+
+.tippy-arrow {
+    color: rgb(84 84 84 / 92%);
+}
