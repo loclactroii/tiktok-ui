@@ -9,15 +9,7 @@ import {
     faMagnifyingGlass,
     faEllipsisVertical,
     faPlus,
-    faEarthAsia,
-    faCircleQuestion,
-    faKeyboard,
-    faCoins,
-    faGear,
-    faArrowRightFromBracket,
-    faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import { faPaperPlane, faMessage } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TippyHeadless from '@tippyjs/react';
 import Tippy from '@tippyjs/react';
@@ -26,12 +18,24 @@ import { Wrapper as TippyWrapper } from '~/components/Popper';
 import { AccountItem } from '~/components/AccountItems';
 import { Button } from '~/components/Button';
 import { Menu } from '~/components/Popper/Menu';
+import {
+    CoinIcon,
+    InboxIcon,
+    KeybroadIcon,
+    LanguageIcon,
+    LogOutIcon,
+    MessagesIcon,
+    QuestIcon,
+    SettingIcon,
+    UserIcon,
+} from '~/components/Icons';
+import Image from '~/components/image';
 
 const cx = classNames.bind(styles);
 
 const CONTENT_DETAILS = [
     {
-        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        icon: <LanguageIcon />,
         title: 'English',
         children: {
             title: 'language',
@@ -55,35 +59,35 @@ const CONTENT_DETAILS = [
         },
     },
     {
-        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        icon: <QuestIcon />,
         title: 'Feedback and help',
         to: '/feedback',
     },
     {
-        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        icon: <KeybroadIcon />,
         title: 'Keybroad shortcuts',
     },
 ];
 
 const USER_LOGIN_DETAILS = [
     {
-        icon: <FontAwesomeIcon icon={faUser} />,
+        icon: <UserIcon />,
         title: 'View profile',
         to: '/profile',
     },
     {
-        icon: <FontAwesomeIcon icon={faCoins} />,
+        icon: <CoinIcon />,
         title: 'Get coins',
         to: '/coins',
     },
     {
-        icon: <FontAwesomeIcon icon={faGear} />,
+        icon: <SettingIcon />,
         title: 'Settings',
         to: '/settings',
     },
     ...CONTENT_DETAILS,
     {
-        icon: <FontAwesomeIcon icon={faArrowRightFromBracket} />,
+        icon: <LogOutIcon />,
         title: 'Log out',
         to: '/logout',
         border_top: true,
@@ -93,7 +97,7 @@ const USER_LOGIN_DETAILS = [
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
     const userLogin = true;
-    // const [login, setLogin] = useState([userLogin]);
+    const [login, setLogin] = useState([userLogin]);
 
     function handleChange(menuItem) {
         console.log(menuItem);
@@ -153,16 +157,16 @@ function Header() {
                         <>
                             <Tippy content="Message">
                                 <button className={cx('icon-login')}>
-                                    <FontAwesomeIcon icon={faPaperPlane} />
+                                    <MessagesIcon className={cx('messages-icon')} />
                                 </button>
                             </Tippy>
                             <Tippy content="Inbox">
                                 <button className={cx('icon-login')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                             <Menu items={USER_LOGIN_DETAILS}>
-                                <img
+                                <Image
                                     className={cx('img')}
                                     src="http://cdn.shopify.com/s/files/1/0529/2641/5045/products/aqualium_top.png?v=1656492696"
                                     alt="Aqua"
