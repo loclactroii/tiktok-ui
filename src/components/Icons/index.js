@@ -190,7 +190,7 @@ export const CloseIcon = () => (
 
 export const LoadingIcon = ({ className }) => (
     <svg
-        className="m-0-12"
+        className="loading"
         width="17"
         height="17"
         viewBox="0 0 48 48"
