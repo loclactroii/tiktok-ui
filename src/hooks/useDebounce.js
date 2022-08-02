@@ -6,6 +6,7 @@ function useDebounce(data, delay) {
     useEffect(() => {
         const timeOut = setTimeout(() => setDataInput(data), delay);
         return () => clearTimeout(timeOut);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
 
     return dataInput;

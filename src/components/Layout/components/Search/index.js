@@ -7,6 +7,7 @@ import { Wrapper as TippyWrapper } from '~/components/Popper';
 import styles from './Search.module.scss';
 import { useRef } from 'react';
 import useDebounce from '~/hooks/useDebounce';
+import * as apiServices from '~/apiServices/apiServices';
 
 const cx = classNames.bind(styles);
 
@@ -23,16 +24,15 @@ function Search() {
             setSearchResult([]);
             return;
         }
-        setLoading(true);
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-            });
+
+        const fetchApi = async () => {
+            setLoading(true);
+            const data = await apiServices.search(debounced);
+            setSearchResult(data);
+            setLoading(false);
+        };
+
+        fetchApi();
     }, [debounced]);
 
     const inputRef = useRef();
