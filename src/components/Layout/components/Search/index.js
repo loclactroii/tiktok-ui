@@ -45,6 +45,13 @@ function Search() {
 
     const hideResult = () => setShowResult(false);
 
+    const hanleChage = (e) => {
+        const valueInput = e.target.value;
+        if (!valueInput.startsWith(' ')) {
+            setSearchValue(valueInput);
+        }
+    };
+
     return (
         <TippyHeadless
             interactive
@@ -68,10 +75,8 @@ function Search() {
                 <input
                     ref={inputRef}
                     value={searchValue}
-                    placeholder="Search accounts and video"
-                    onChange={(e) => {
-                        setSearchValue(e.target.value);
-                    }}
+                    placeholder="Search accounts and videos"
+                    onChange={hanleChage}
                     onFocus={(e) => setShowResult(true)}
                 />
                 {!!searchValue && !loading && (
@@ -84,7 +89,7 @@ function Search() {
                         <LoadingIcon />
                     </span>
                 )}
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     <SearchIcon />
                 </button>
             </div>

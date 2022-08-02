@@ -21,6 +21,8 @@ import {
 } from '~/components/Icons';
 import Image from '~/components/image';
 import Search from '../Search';
+import { Link } from 'react-router-dom';
+import routes from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -95,9 +97,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('innner')}>
-                <div className={cx('logo')}>
+                <Link to={routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="Tik tok" />
-                </div>
+                </Link>
                 <Search />
                 <div className={cx('btn-section')}>
                     <Button outline thin leftIcon={<FontAwesomeIcon icon={faPlus} />}>

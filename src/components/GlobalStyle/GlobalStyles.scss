@@ -4,6 +4,9 @@
     // Color
     --primary-color: rgb(254 44 85);
 
+    // Fonts
+    --font-proxima-nova: 'ProximaNova', 'sans-serif';
+
     // Laypot
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
@@ -21,7 +24,7 @@ html {
 }
 
 body {
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-proxima-nova);
     font-weight: 600;
     font-size: 1.6rem;
     line-height: 1.5;
@@ -36,7 +39,7 @@ button {
 a[href] {
     color: #000;
     text-decoration: none;
-    font-family: 'ProximaNova', Helvetica, sans-serif;
+    font-family: var(--font-proxima-nova);
     font-weight: 600;
 }
 

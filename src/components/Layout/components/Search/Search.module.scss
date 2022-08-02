@@ -16,6 +16,7 @@
         padding-left: 16px;
         font-size: 1.55rem;
         caret-color: rgb(254 44 85);
+        font-family: var(--font-proxima-nova);
     }
 
     input:not(:placeholder-shown) ~ .search-btn {
