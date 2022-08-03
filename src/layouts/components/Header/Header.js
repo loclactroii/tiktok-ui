@@ -194,7 +194,7 @@ function Header() {
                     <Button outline thin leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                         Upload
                     </Button>
-                    {!userLogin ? (
+                    {userLogin ? (
                         <>
                             <Button primary>Log in</Button>
                             <Menu userLogin items={CONTENT_DETAILS} onChange={handleChange}>
