@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 
 // From app
 import { publicRoutes } from '~/routes';
-import { DefaultLayout } from './components/Layout';
+import { DefaultLayout } from './layouts';
 
 function App() {
     return (

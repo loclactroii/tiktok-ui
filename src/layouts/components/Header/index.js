@@ -1,13 +1,11 @@
-import classNames from 'classnames/bind';
-import styles from './Header.module.scss';
-import images from '~/assets/images';
-import React from 'react';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
+import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
+import images from '~/assets/images';
 import { Button } from '~/components/Button';
-import { Menu } from '~/components/Popper/Menu';
 import {
     CoinIcon,
     InboxIcon,
@@ -20,9 +18,10 @@ import {
     UserIcon,
 } from '~/components/Icons';
 import Image from '~/components/image';
+import { Menu } from '~/components/Popper/Menu';
+import config from '~/config';
 import Search from '../Search';
-import { Link } from 'react-router-dom';
-import routes from '~/config/routes';
+import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -33,6 +32,96 @@ const CONTENT_DETAILS = [
         children: {
             title: 'language',
             data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: '日本語（日本）',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: '日本語（日本）',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: '日本語（日本）',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: '日本語（日本）',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: '日本語（日本）',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: '日本語（日本）',
+                },
                 {
                     type: 'language',
                     code: 'en',
@@ -97,7 +186,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('innner')}>
-                <Link to={routes.home} className={cx('logo')}>
+                <Link to={config.routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="Tik tok" />
                 </Link>
                 <Search />
