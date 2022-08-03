@@ -13,7 +13,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange }) {
     const [state, setState] = useState([{ data: items }]);
     const finalArray = state[state.length - 1];
 
-    function onChange() {}
+    // function onChange() {}
 
     function renderItems() {
         return finalArray.data.map((item, index) => {
