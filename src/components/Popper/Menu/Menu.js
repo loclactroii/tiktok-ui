@@ -5,12 +5,15 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItems';
 import HeaderMenu from './HeaderMenu';
 import { useState } from 'react';
+import propTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
 
 function Menu({ children, items = [], hideOnClick = false, onChange }) {
     const [state, setState] = useState([{ data: items }]);
     const finalArray = state[state.length - 1];
+
+    function onChange() {}
 
     function renderItems() {
         return finalArray.data.map((item, index) => {
@@ -57,5 +60,12 @@ function Menu({ children, items = [], hideOnClick = false, onChange }) {
         </Tippy>
     );
 }
+
+Menu.propTypes = {
+    children: propTypes.node.isRequired,
+    items: propTypes.array,
+    hideOnClick: propTypes.bool,
+    onChange: propTypes.func,
+};
 
 export default Menu;

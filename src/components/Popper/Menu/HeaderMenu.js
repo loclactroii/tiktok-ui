@@ -3,6 +3,7 @@ import styles from './Menu.module.scss';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from '~/components/Button';
+import propTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
 
@@ -16,5 +17,10 @@ function HeaderMenu({ title, onBack }) {
         </div>
     );
 }
+
+HeaderMenu.propTypes = {
+    title: propTypes.string,
+    onBack: propTypes.func,
+};
 
 export default HeaderMenu;
