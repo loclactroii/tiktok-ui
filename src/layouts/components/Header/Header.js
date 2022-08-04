@@ -36,106 +36,127 @@ const CONTENT_DETAILS = [
                     type: 'language',
                     code: 'en',
                     title: 'English',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'jp',
                     title: '日本語（日本）',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'en',
                     title: 'English',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'jp',
                     title: '日本語（日本）',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'en',
                     title: 'English',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'jp',
                     title: '日本語（日本）',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'en',
                     title: 'English',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'jp',
                     title: '日本語（日本）',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'en',
                     title: 'English',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'jp',
                     title: '日本語（日本）',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'en',
                     title: 'English',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'jp',
                     title: '日本語（日本）',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'en',
                     title: 'English',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
+                    font: true,
                 },
                 {
                     type: 'language',
                     code: 'jp',
                     title: '日本語（日本）',
+                    font: true,
                 },
             ],
         },
@@ -194,7 +215,7 @@ function Header() {
                     <Button outline thin leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                         Upload
                     </Button>
-                    {userLogin ? (
+                    {!userLogin ? (
                         <>
                             <Button primary>Log in</Button>
                             <Menu userLogin items={CONTENT_DETAILS} onChange={handleChange}>

@@ -1,0 +1,17 @@
+.wrapper {
+    width: 356px;
+    padding: 20px 0 26px 8px;
+    position: fixed;
+
+    .nav-item {
+        margin-left: 0;
+        border: none;
+        display: flex;
+        justify-content: left;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 8px 20px 8px 8px;
+        align-items: center;
+        border-radius: 4px;
+    }
+}

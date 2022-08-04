@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import propTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
@@ -8,6 +8,7 @@ const cx = classNames.bind(styles);
 function Button({
     to,
     href,
+    navLink,
     onClick,
     children,
     thin,
@@ -20,21 +21,25 @@ function Button({
     className,
     leftIcon,
     rightIcon,
+    leftActiveIcon,
     ...passProps
 }) {
-    let Temp = 'button';
+    let Comp = 'button';
 
     const props = {
         onClick,
         ...passProps,
     };
 
-    if (to) {
+    if (to && navLink) {
         props.to = to;
-        Temp = Link;
+        Comp = NavLink;
     } else if (href) {
         props.href = href;
-        Temp = 'a';
+        Comp = NavLink;
+    } else if (to) {
+        props.to = to;
+        Comp = Link;
     }
 
     if (disabled) {
@@ -56,13 +61,23 @@ function Button({
         thin,
     });
 
-    return (
-        <Temp className={classes} {...props}>
+    const defaultCom = () => (
+        <Comp className={classes} {...props}>
             {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
             <span>{children}</span>
             {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
-        </Temp>
+        </Comp>
     );
+
+    const navLinkCom = () => (
+        <Comp className={(nav) => cx(classes, { active: nav.isActive })} {...props}>
+            <span className={cx('icon')}>{leftIcon}</span>
+            <span className={cx('icon-active')}>{leftActiveIcon}</span>
+            <span>{children}</span>
+        </Comp>
+    );
+
+    return Comp === NavLink ? navLinkCom() : defaultCom();
 }
 
 Button.propTypes = {
@@ -78,8 +93,9 @@ Button.propTypes = {
     large: propTypes.bool,
     small: propTypes.bool,
     className: propTypes.string,
-    leftIcon: propTypes.element,
-    rightIcon: propTypes.element,
+    leftIcon: propTypes.node,
+    rightIcon: propTypes.node,
+    rightActiveIcon: propTypes.node,
 };
 
 export default Button;

@@ -53,49 +53,48 @@ function Search() {
     };
 
     return (
-        <div>
-            <TippyHeadless
-                interactive
-                placement="bottom"
-                visible={searchResult.length > 0 && showResult}
-                onClickOutside={hideResult}
-                render={(attrs) => (
-                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                        <TippyWrapper>
-                            <div className={cx('accounts')}>
-                                <span>Accounts</span>
-                            </div>
-                            {searchResult.map((item) => (
-                                <AccountItem data={item} key={item.id} />
-                            ))}
-                        </TippyWrapper>
-                    </div>
-                )}
-            >
-                <div className={cx('search')}>
-                    <input
-                        ref={inputRef}
-                        value={searchValue}
-                        placeholder="Search accounts and videos"
-                        onChange={hanleChage}
-                        onFocus={(e) => setShowResult(true)}
-                    />
-                    {!!searchValue && !loading && (
-                        <button className={cx('clear')} onClick={handleClear}>
-                            <CloseIcon />
-                        </button>
-                    )}
-                    {loading && (
-                        <span className={cx('loading')}>
-                            <LoadingIcon />
-                        </span>
-                    )}
-                    <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                        <SearchIcon />
-                    </button>
+        <TippyHeadless
+            appendTo={document.body}
+            interactive
+            placement="bottom"
+            visible={searchResult.length > 0 && showResult}
+            onClickOutside={hideResult}
+            render={(attrs) => (
+                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                    <TippyWrapper>
+                        <div className={cx('accounts')}>
+                            <span>Accounts</span>
+                        </div>
+                        {searchResult.map((item) => (
+                            <AccountItem data={item} key={item.id} />
+                        ))}
+                    </TippyWrapper>
                 </div>
-            </TippyHeadless>
-        </div>
+            )}
+        >
+            <div className={cx('search')}>
+                <input
+                    ref={inputRef}
+                    value={searchValue}
+                    placeholder="Search accounts and videos"
+                    onChange={hanleChage}
+                    onFocus={(e) => setShowResult(true)}
+                />
+                {!!searchValue && !loading && (
+                    <button className={cx('clear')} onClick={handleClear}>
+                        <CloseIcon />
+                    </button>
+                )}
+                {loading && (
+                    <span className={cx('loading')}>
+                        <LoadingIcon />
+                    </span>
+                )}
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
+                    <SearchIcon />
+                </button>
+            </div>
+        </TippyHeadless>
     );
 }
 

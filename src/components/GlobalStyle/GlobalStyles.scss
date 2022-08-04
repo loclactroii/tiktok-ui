@@ -28,7 +28,7 @@ body {
     font-weight: 600;
     font-size: 1.6rem;
     line-height: 1.5;
-    overflow-y: auto;
+    overflow-y: overlay;
 }
 
 html *::-webkit-scrollbar {

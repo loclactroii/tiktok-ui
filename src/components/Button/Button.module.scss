@@ -74,15 +74,26 @@
     box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
 }
 
-.icon + span,
-span + .icon {
-    margin-left: 8px;
-}
-
-.icon {
+.icon,
+.icon-active {
     display: inline-block;
-    width: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 8px;
+}
+
+.icon-active {
+    display: none;
+}
+
+.active {
+    color: var(--primary-color);
+    .icon-active {
+        display: flex;
+    }
+
+    .icon {
+        display: none;
+    }
 }

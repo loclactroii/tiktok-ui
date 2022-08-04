@@ -11,9 +11,7 @@ const cx = classNames.bind(styles);
 
 function Menu({ children, items = [], hideOnClick = false, onChange }) {
     const [state, setState] = useState([{ data: items }]);
-    const finalArray = state[state.length - 1];
-
-    // function onChange() {}
+    var finalArray = state[state.length - 1];
 
     function renderItems() {
         return finalArray.data.map((item, index) => {
@@ -34,12 +32,17 @@ function Menu({ children, items = [], hideOnClick = false, onChange }) {
         });
     }
 
+    const handleHide = () => {
+        setState((prev) => prev.slice(0, 1));
+    };
+
     return (
         <Tippy
             hideOnClick={hideOnClick}
-            delay={[0, 500]}
+            delay={[0, 300]}
             interactive
             placement="bottom-end"
+            onHide={handleHide}
             render={(attrs) => (
                 <div className={cx('more-details')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('pb-8')}>
